@@ -291,7 +291,7 @@ sum_asv_count_genus <- as.data.frame(rowsum(x = asv_count_genus[,-1], group = gr
 
 
 sum_asv_count_genus_norm <- decostand(x = sum_asv_count_genus, method="total", MARGIN = 2)
-dim(sum_asv_count_genus_norm)
+#dim(sum_asv_count_genus_norm)
 
 sum_asv_count_genus_norm$Genus <- levels(asv_count_genus$Genus)
 rownames(sum_asv_count_genus_norm) = sum_asv_count_genus_norm$Genus
@@ -364,7 +364,7 @@ int_micro_S7Bgenus = ggplot() +
   coord_equal() +
   theme_bw()
 ggiraph(ggobj = int_micro_S7Bgenus)
-#ggsave("nmds_genus_S7B.eps", device = "eps", width=9, height=5.5)
+#ggsave("nmds_genus_S7B.eps", device = "eps")#, width=9, height=5.5)
 
 int_micro_S7Bgenus_zoom = ggplot() + 
 #  geom_text(data = species.scores.micro.S7B, aes(x = NMDS1, y = NMDS2, label = species), colour = "darkcyan") +  
@@ -375,7 +375,7 @@ int_micro_S7Bgenus_zoom = ggplot() +
   coord_cartesian(ylim=c(- 0.5, 0.5), xlim = c(- 0.5, 0.5)) +
   theme_bw()
 ggiraph(ggobj = int_micro_S7Bgenus_zoom)
-#ggsave("nmds_genus_S7B_zoom.eps", device = "eps", width=9, height=5.5)
+#ggsave("nmds_genus_S7B_zoom.eps", device = "eps")#, width=9, height=5.5)
 
 
 
@@ -443,7 +443,7 @@ int_micro_F7Wgenus = ggplot() +
   coord_equal() +
   theme_bw()
 ggiraph(ggobj = int_micro_F7Wgenus)
-#ggsave("nmds_genus_F7W.eps", device = "eps", width=9, height=5.5)
+ggsave("nmds_genus_F7W.eps", device = "eps")#, width=9, height=5.5)
 
 
 int_micro_F7Wgenus_zoom = ggplot() + 
@@ -455,7 +455,7 @@ int_micro_F7Wgenus_zoom = ggplot() +
   coord_cartesian(ylim=c(- 1, 1), xlim = c(- 1, 1)) +
   theme_bw()
 ggiraph(ggobj = int_micro_F7Wgenus_zoom)
-#ggsave("nmds_genus_F7W_zoom.eps", device = "eps", width=9, height=5.5)
+#ggsave("nmds_genus_F7W_zoom.eps", device = "eps")#, width=9, height=5.5)
 ```
 
 NMDS of all 4 groups + hierarchical clustering (genus level)
