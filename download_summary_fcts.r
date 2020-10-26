@@ -85,3 +85,24 @@ genus_raw_and_tss_data <- function(){
   return(list(sum_asv_count_genus, sum_asv_count_genus_norm))
 }
 
+
+## family observations genus level
+
+family_data_raw <- function(){
+  df = read.delim(file = "~/Desktop/Thesis/stacked data/stacked_data.txt", sep = "\t")
+  df_na = df[complete.cases(df), ]
+  
+  raw_counts_family = df_na
+  #sapply(df_na, function(x) sum(is.na(x)))
+  
+  rownames(raw_counts_family) = with(raw_counts_family, paste0(farm, individual))
+  raw_counts_family = raw_counts_family[,-c(1,2)]
+  raw_counts_family_matrix = as.matrix(t(raw_counts_family))
+  
+  raw_counts_wo_normalization = as.data.frame(raw_counts_family_matrix)
+  #raw_counts_wo_normalization = raw_counts_wo_normalization[!empty_rows,]
+  
+  return(list(raw_counts_family_matrix, raw_counts_wo_normalization, raw_counts_family))
+}
+
+
